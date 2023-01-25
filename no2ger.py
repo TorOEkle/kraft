@@ -5,7 +5,7 @@ from datetime import datetime, date
 import numpy as np
 import plotly.express as px
 st.set_page_config(layout="wide", page_title= 'Diverse grafer', page_icon= "lightning")
-st.title('Tor Odins side for å dele grafer og tall')
+st.title('Grafer over prisdifferanse NO2 og Tyskland')
 
 prices = pd.read_csv('noger.csv')
 prices.rename(columns= {'Datetime (UTC)': 'date'}, inplace=True)
