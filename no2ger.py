@@ -8,6 +8,8 @@ st.set_page_config(layout="wide", page_title= 'Diverse grafer', page_icon= "ligh
 st.title('Tor Odins side for å dele grafer og tall')
 
 prices = pd.read_csv('noger.csv')
+prices.rename(columns= {'Datetime (UTC)': 'date'}, inplace=True)
+prices['date'] = pd.to_datetime(prices['date'], format='%Y-%m-%d %H:%M:%S')
 
 @st.cache
 def load_data2(ttl= 86400):
