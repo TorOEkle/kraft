@@ -7,14 +7,7 @@ import plotly.express as px
 st.set_page_config(layout="wide", page_title= 'Diverse grafer', page_icon= "lightning")
 st.title('Tor Odins side for å dele grafer og tall')
 
-@st.cache
-def load_data1(ttl= 86400):
-    df = pd.read_csv('european_wholesale_electricity_price_data_hourly.csv')
-    df = pd.merge(df[df['Country'] == 'Norway'].rename(columns= {'Price (EUR/MWhe)':'price_nor'}),df[df['Country'] == 'Germany'].rename(columns= {'Price (EUR/MWhe)':'price_ger'}), on= 'Datetime (UTC)' )[['Datetime (UTC)','price_nor','price_ger']]
-    df.rename(columns= {'Datetime (UTC)': 'date'}, inplace=True)
-    df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d %H:%M:%S')
-    return df
-prices = load_data1()
+prices = pd.read_csv('noger.csv')
 
 @st.cache
 def load_data2(ttl= 86400):
