@@ -37,6 +37,7 @@ df_long = df_long[(df_long['variable'] == 'price_no2') | (df_long['variable'] ==
 fig_price =px.line(df_long, y='value', x='date', color='variable', template='plotly_white')
 fig_price.add_vline(x='2021-03-31 00:00:00', line_width=3, line_dash="dash", line_color="green")
 fig_price.update_traces(opacity=0.5)
+st.write('Priser i EUR/MWH, vertikal linje for kommersiell start av Nordlink)
 st.plotly_chart(fig_price, use_container_width=True)
 # %%
 df_prices['no2_ger'] = df_prices['price_no2']-df_prices['price_ger']
